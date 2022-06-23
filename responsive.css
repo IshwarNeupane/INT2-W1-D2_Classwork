@@ -1,0 +1,39 @@
+@media only screen and (max-width:900px) {
+.footer{
+    font-size: 80%;
+    overflow: hidden;
+}
+.footer-div div:nth-child(2){
+    width: auto;
+}
+.footer-div h1{
+    width: 30%;
+    margin: 1em 0 0 1em;
+}
+}
+@media only screen and (max-width: 850px){
+.nav-bar{
+    width: auto;
+    position: relative;
+}
+.nav-bar ul:first-child {
+    display: none;
+    width: 8em;
+    background: rgba(32, 15, 92, 0.539);
+    padding: .5em;
+    position: absolute;
+    right: 2em;
+    top: 1.5em;
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.44);
+}
+.nav-bar ul:first-child li:hover {
+    background: rgba(255, 255, 255, 0.493);
+    color: black;
+}
+.fa-bars {
+    display: block!important;
+    margin-right: 2em;
+    width: 1em;
+    height: auto;
+}
+}

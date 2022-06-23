@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/responsive.css">
+    <title>Practice Site</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            background: #10499d;
+            height: max-content;
+            width: 100%;
+            padding: .5em;
+        }
+        .header-div{
+            display: flex;
+            justify-content: space-between;
+            margin: 0 2em .5em 2em;
+        }
+        /*.header-div .header-div-1 svg{
+            height: 1.5em;
+            width: 1.5em;
+            fill: #fff;
+        }*/
+        .header-icon{
+            display: grid;
+            height: 1em;
+            width: 1em;
+            grid-template:'box1 box2'
+                          'box3 box4'
+        }
+        .header-icon span:nth-child(1){
+            grid-area: box1;
+        }
+        .header-icon span:nth-child(2){
+            grid-area: box2;
+        }
+        .header-icon span:nth-child(3){
+            grid-area: box3;
+        }
+        .header-icon span:nth-child(4){
+            grid-area: box4;
+        }
+        .header-icon span{
+            height: .5em;
+            width: .5em;
+            margin: .9px;
+            background-color: #fff;
+            display: inline-block;
+        }
+        header nav{
+            background:#165dc7 ;
+            height: max-content;
+            width: 100%;
+        }
+        .header-div-1{
+            display: flex;
+            align-items: center;
+        }
+        .header-div-1 .main-menu li{
+            list-style: none;
+            color: #fff;
+        }
+        .main-menu{
+            margin-left: .5em;
+            position: relative;
+        }
+        .main-menu .fas{
+            font-size: 12pt;
+        }
+        .dropdown-menu{
+            background: wheat;
+            border-radius: .5em;
+            width: 7em !important;
+            height: max-content;
+            line-height: 1.5;
+            display: none;
+            position: absolute;
+            overflow: hidden;
+            box-shadow: 5px 5px 22px 4px rgba(0,0,0,0.28);
+        }
+        .dropdown-menu li{
+            color: #072653 !important;
+            margin-left: 1em;
+            width: 100%;
+        }
+        .dropdown-menu li:hover{
+            cursor: pointer;
+            background: rgb(221,221,221);
+            margin-left: 1em;
+        }
+        .show{
+            display: block !important;
+        }
+        .main-menu li:nth-child(1){
+            cursor: pointer;
+        }
+        .header-div-1 p{
+            color: #fff;
+            font-family: 'poppins';
+            font-size: 10pt;
+            margin-left: 9pt;
+        }
+        .header-div-2 {
+            display: flex;
+            width: 15%;
+            justify-content: space-evenly;
+            color: #fff;
+            font-family: 'poppins';
+            font-size: 10pt;
+            align-items: center;
+        }
+        .header-div-2 button{
+            padding: .5em;
+            background: #6fb70a;
+            border: none;
+            border-radius: .3em;
+            box-shadow: 5px 5px 22px 4px rgba(0,0,0,0.28);
+        }
+        .header-div-2 button:hover{
+            box-shadow: 5px 5px 22px 4px rgba(0,0,0,0.48);
+            cursor: pointer;
+            background: #6fb70ab7;
+        }
+        .header-nav{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between;
+        }
+        .header-nav span img{
+            height: 3em;
+            width: 3em;
+        }
+        .nav-bar ul{
+            display: flex;
+            justify-content: space-evenly;
+            width: 47em;
+        }
+        .nav-bar ul li{
+            list-style: none;
+            color: #fff;
+            font-family: 'poppins';
+            font-size: 10pt;
+        }
+        .active{
+            border-bottom: 2px solid orange;
+        }
+        .nav-bar ul li:hover{
+            cursor: pointer;
+            color: rgb(227,225,225);
+        }
+        .page-map{
+            font-family: 'arial';
+            font-size: 10pt;
+            margin: .5em 2em;
+        }
+        .dashboard-body-content{
+            margin-left: 2em 2.3em;
+        }
+        .dashboard-body-content h1{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 300;
+            font-size: 40pt;
+        }
+        .body-content-top,
+        .body-content-bottom{
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: space-evenly;
+            margin-top: 2em;
+        }
+        .body-content-top div,
+        .body-content-bottom div{
+            height: 25em;
+            width: 20em;
+            box-shadow: 5px 5px 22px -2px rgba(0,0,0,0.54);
+            padding: 1.5em;
+            line-height: 2;
+            margin-bottom: 2.5em;
+        }
+        .body-content-top div h3,
+        .body-content-bottom div h3{
+            font-weight: 600 !important;
+            font-size: 14pt;
+
+        }
+        .body-content-top div p,
+        .body-content-bottom div p{
+            margin: 1em 0em 1em 0em;
+        }
+        .body-content-top div p i,
+        .body-content-bottom div p i{
+            margin-right: .7em;
+        }
+        .body-content-top div:nth-child(1) {
+            border-top: 4px solid rgb(140, 13, 140);
+        }
+        .body-content-top div:nth-child(1) p{
+            border: 2px solid rgb(140, 13, 140);
+            padding: .5em;
+            color: rgb(140, 13, 140);
+        }
+        .body-content-top div:nth-child(1) p span{
+            background: rgb(255, 98, 0);
+            color: #fff;
+            padding: .3em .9em;  
+        }
+        .body-content-top div:nth-child(2) {
+            border-top: 4px solid rgb(174, 150, 16);
+        }
+        .body-content-top div:nth-child(2) p{
+            border: 2px solid rgb(174, 150, 16);
+            padding: .5em;
+            color: rgb(174, 150, 16);
+        }
+        .body-content-top div:nth-child(3) {
+            border-top: 4px solid rgb(159, 187, 21);
+        }
+        .body-content-top div:nth-child(3) p {
+            border: 2px solid rgb(159, 187, 21);
+            padding: .5em;
+            color: rgb(159, 187, 21);
+        }
+        .body-content-bottom div:nth-child(1) {
+            border-top: 4px solid rgb(13, 89, 164);
+        }
+        .body-content-bottom div:nth-child(1) p {
+            border: 2px solid rgb(13, 89, 164);
+            padding: .5em;
+            color: rgb(13, 89, 164);
+        }
+        .body-content-bottom div:nth-child(2) {
+            border-top: 4px solid rgb(12, 125, 133);
+        }
+        .body-content-bottom div:nth-child(2) p {
+            border: 2px solid rgb(12, 125, 133);
+            padding: .5em;
+            color: rgb(12, 125, 133);
+        }
+        .body-content-bottom div:nth-child(3) {
+            border-top: 4px solid rgb(12, 107, 145);
+        }
+        .body-content-bottom div:nth-child(3) p {
+           /* border: 2px solid rgb(12, 107, 145);*/
+            padding: .5em;
+            color:rgb(12, 107, 145);
+        }
+        footer{
+            margin-top: 2em;
+            height: max-content;
+            background: #10499d;
+            width: 100%;
+            color: #fff;
+            font-family: 'poppins';
+        }
+        .footer-div{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .footer-div div:nth-child(2){
+            width: 38em;
+            display: flex;
+        }
+        .footer-div div:nth-child(2) div{
+            display: inline-block;
+            margin: 2em;
+        }
+        .footer-div h1 {
+            font-family: 'Merriweather';
+            font-size: 18pt;
+            margin: 3em 0 0 3em;
+        }
+        .footer-div div:nth-child(2) {
+            width: 38em;
+            display: flex;
+            margin: 2em;
+        }
+        .footer-div div:nth-child(2) div {
+            display: inline-block;
+            margin: 2em;
+        }
+        .footer-nav li {
+            list-style: none;
+            line-height: 2.5;
+        }
+        .footer-contact h3 {
+            text-transform: uppercase;
+            margin-bottom: 1em;
+        }
+        .footer-contact p {
+            font-size: 10pt;
+            width: 12em;
+        }
+        .footer-contact hr {
+            background: #fff;
+            height: 1px;
+            margin: 1em 0 1.5em 0;
+        }
+        footer p:nth-child(3) {
+            font-size: 8pt;
+            padding: 1.5em 0 3em 2em;
+        }
+        .nav-bar .fa-bars{
+            color:#fff;
+            display: none;
+            font-size: 12pt;
+            padding: .5em;
+        }
+        .fa-bars:hover{
+            background: rgba(190, 190, 190, 0.288);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="header-div">
+            <div class="header-div-1">
+                <div class="header-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="main-menu">
+                    <li onclick="itemMenu()"> All Sites <i class="fas fa-caret-down"></i></li>
+                    <ul class="dropdown-menu">
+                        <li>Item1</li>
+                        <li>Item2</li>
+                        <li>Item3</li>
+                        <li>Item4</li>
+                    </ul>
+                </ul>
+                <p>Annuities for Financial Professionals</p>
+            </div>
+            <div class="header-div-2">
+              <p>Contact Us</p>
+              <button>My Dashboard</button>
+              <i class="fas fa-user"></i>
+              <i class="fas fa-caret-down"></i>
+            </div>
+        </div>
+        <nav class="header-nav">
+            <span>
+                <img src="pacific-logo.png" alt="Company Logo">
+            </span>
+            <div class="nav-bar">
+                <ul>
+                    <li class="active">Fixed Annuities</li>
+                    <li>Variable Annuities</li>
+                    <li>Insights</li>
+                    <li>Sales Tools</li>
+                    <li>Forms</li>
+                    <li>Working with Us</li>
+                    <li><i class="fas fa-search"></i> </li>
+                </ul>
+                <i class="fas fa-bars" onclick="nav_open();"></i>
+            </div>
+        </nav>
+    </header>
+    <p class="page-map">Home/ My Dashboard</p>
+    <section class="dashboard-body-content">
+        <h1>Welcome, Registered Rep</h1>
+        <div class="body-content-top">
+            <div>
+                <h3>Manage My Book of Business</h3>
+                <p><i class="fas fa-users"></i>Contract Management</p>
+                <p><i class="fas fa-bell"></i>Contact Activity Alert <br><span>New Activity</span></p>
+                <p><i class="fas fa-envelope"></i>Email Subscription</p>
+            </div>
+            <div>
+                <h3>Business Tools</h3>
+                <p><i class="fas fa-chart-bar"></i>Variable Annuity Performance</p>
+                <p><i class="fas fa-chart-line"></i>Daily Unit Values</p>
+                <p><i class="fas fa-percent"></i>Fixed Annuity</p>
+                <p><i class="fas fa-chart-area"></i>Hypothetical Illustrations</p>
+            </div>
+            <div>
+                <h3>Forms and Literature</h3>
+                <p><i class="fas fa-edit"></i>Administrative Forms</p>
+                <p><i class="fas fa-edit"></i>Applications & Replacement Forms</p>
+                <p><i class="fas fa-edit"></i>Forms Wizard</p>
+                <p><i class="fas fa-cart-arrow-down"></i>Order Literature</p>
+            </div>
+        </div>
+      <div class="body-content-bottom">
+        <div>
+            <h3>My Commissions & Projections</h3>
+            <p><i class="fas fa-chart-line"></i>Trial Commission</p>
+            <p><i class="fas fa-calculator"></i>Cash Flow Calculator</p>
+            <p><i class="fas fa-calculator"></i>Persistency Bonus Calculator</p>
+        </div>
+        <div>
+            <h3>My Licensing & Training</h3>
+            <p><i class="fas fa-briefcase"></i>Appointment Status</p>
+            <p><i class="fas fa-laptop"></i>NAIC Product Training</p>
+            <p><i class="fas fa-laptop"></i>RegEd Annuity Product Training</p>
+            <p><i class="fas fa-file"></i>RegEd User Guide</p>
+        </div>
+        <div>
+            <h3>Notifications</h3>
+            <p>Changes to Pacific Frontiers II in Montana- <br> October 2017</p>
+            <p>Changes to Pacific Frontiers II in Montana- <br> October 2017</p>
+            <p>Pacific Index Foundation Notice</p>
+            <p>Pacific Life's New Fixed Indexed Annuity</p>
+        </div>
+      </div>
+    </section>
+    <footer>
+        <div class="footer-div">
+            <h1>Pacific Group</h1>
+            <div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p>Insert email here</p>
+                    <hr>
+                    <p>Address Line one</p>
+                    <p>Address Line two</p>
+                </div>
+                <div class="footer-nav">
+                    <ul>
+                        <li>About Us</li>
+                        <li>Current Series</li>
+                        <li>The house</li>
+                        <li>Looking Back</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <p>Copyrights (c) Pacific Group</p>
+    </footer>
+    <script>
+        function itemMenu(){
+            document.querySelector('.dropdown-menu').classList.toggle('show');
+        }
+        function nav_open(){
+            document.querySelector('.nav-bar ul').classList.toggle('show')
+        }
+    </script>
+</body>
+</html>
